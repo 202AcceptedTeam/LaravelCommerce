@@ -149,4 +149,4 @@ Langkah-Langkah
 21. Register Customer dapat diakses dengan http://localhost:8000/member/register
 22. Ketika sudah import excel pada saat hendak mass upload, jalankan perintah <b>php artisan queue:work</b> agar data diimport ke table products.
 
-SEKIAN PENJELASAN DARI SAYA, TERIMAKASIH. Created by <b>RIFKI</b>
+SEKIAN PENJELASAN DARI SAYA, TERIMAKASIH. Initial by <b>RIFKI</b> Updated & Maintananced by <b> <a href="https://github.com/vldcreation"> Vicktor </a> </b>

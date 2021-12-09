@@ -72,6 +72,7 @@ Route::group(['prefix' => 'member', 'namespace' => 'Ecommerce'], function() {
     Route::group(['middleware' => 'customer'], function() {
         Route::get('dashboard', 'LoginController@dashboard')->name('customer.dashboard');
         Route::get('orders', 'OrderController@index')->name('customer.orders');
+        Route::get('orders/testRaja/{destination}/{weight}/{courier}', 'CartController@getRajaOngkirCost')->name('customer.orders.test-raja');
         Route::get('orders/{invoice}', 'OrderController@view')->name('customer.view_order');
         Route::get('orders/pdf/{invoice}', 'OrderController@pdf')->name('customer.order_pdf');
         Route::post('orders/accept', 'OrderController@acceptOrder')->name('customer.order_accept');

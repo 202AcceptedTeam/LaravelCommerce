@@ -248,4 +248,30 @@ class CartController extends Controller
             return redirect()->back();
         }    
     }
+
+    public function getRajaOngkirCost($destination,$weight,$courier){
+        $response = Http::withHeaders([
+            'key' => 'b81931e5a7ad554e7827cd398f8d13de'
+        ])->post('https://api.rajaongkir.com/starter/cost', [
+            'origin' => '501',
+            'destination' => $destination,
+            'weight' => $weight,
+            'courier' => $courier
+        ])->throw()->json();
+        // return $response->clientError();
+        
+        // if($response->status() == 400){
+        //     return response()->json([
+        //         'status' => 400,
+        //         'message' => $response->clientError()->toArray()
+        //     ]);
+        // }
+
+
+
+        return response()->json([
+            'status' => 200,
+            'value' => $response['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value']
+        ]);
+    }
 }

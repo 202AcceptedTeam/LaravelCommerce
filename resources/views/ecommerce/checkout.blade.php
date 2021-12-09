@@ -111,7 +111,7 @@
                                             @foreach ($carts as $cart)
                                                             <li>
                                                                 <a href="#">{{ \Str::limit($cart['product_name'], 10) }}
-                                                <span class="middle">x {{ $cart['qty'] }}</span>
+                                                <span class="middle">x <weight id="weigh_baru">{{ $cart['qty'] }}</weight> </span>
                                                 <span class="last">Rp {{ number_format($cart['product_price']) }}</span>
                                                                 </a>
                                             </li>
@@ -186,30 +186,49 @@
 
         $('#district_id').on('change', function() {
             $('#courier').empty()
-            $('#courier').append('<option value="">Loading...</option>')
+            // $('#courier').append('<option value="">Loading...</option>')
+            $('#courier').append('<option value="jne">JNE</option>')
+            $('#courier').append('<option value="pos">POS Indonesia</option>')
+            $('#courier').append('<option value="tiki">TIKI</option>')
         
-            $.ajax({
-                url: "{{ url('/api/cost') }}",
-                type: "POST",
-                data: { destination: $(this).val(), weight: $('#weight').val() },
-                success: function(html){
+            // $.ajax({
+            //     url: "{{ url('/api/cost') }}",
+            //     type: "POST",
+            //     data: { destination: $(this).val(), weight: $('#weight').val() },
+            //     success: function(html){
 
-                    $('#courier').empty()
-                    $('#courier').append('<option value="">Pilih Kurir</option>')
+            //         $('#courier').empty()
+            //         $('#courier').append('<option value="">Pilih Kurir</option>')
                 
-                    //LOOPING DATA ONGKOS KIRIM
-                    $.each(html.data.results, function(key, item) {
-                        let courier = item.courier + ' - ' + item.service + ' (Rp '+ item.cost +')'
-                        let value = item.courier + '-' + item.service + '-'+ item.cost
-                        //DAN MASUKKAN KE DALAM OPTION SELECT BOX
-                        $('#courier').append('<option value="'+value+'">' + courier + '</option>')
-                    })
-                }
-            });
+            //         //LOOPING DATA ONGKOS KIRIM
+            //         // $.each(html.data.results, function(key, item) {
+            //         //     let courier = item.courier + ' - ' + item.service + ' (Rp '+ item.cost +')'
+            //         //     let value = item.courier + '-' + item.service + '-'+ item.cost
+            //         //     //DAN MASUKKAN KE DALAM OPTION SELECT BOX
+            //         //     $('#courier').append('<option value="'+value+'">' + courier + '</option>')
+            //         // })
+            //     }
+            // });
         })
 
         $('#courier').on('change', function() {
             let split = $(this).val().split('-')
+            let destination = $('#city_id option:selected').attr('value');
+            let weight = $('#weigh_baru').text();
+            let courier = $('#courier option:selected').attr('value');
+            $.ajax({
+                type: "GET",
+                url: 'member/orders/testRaja/'+destination+'/'+weight+'/'+courier,
+                dataType: "json",
+                success: function (response) {
+                    let subtotal = "{{ $subtotal }}";
+                    let total = parseInt(subtotal) + parseInt(response.value);
+                    $('#ongkir').text('Rp '+response.value);
+                    $('#total').text('Rp' + total)
+                    console.log(response.value);
+                }
+            });
+
             $('#ongkir').text('Rp ' + split[2])
 
             let subtotal = "{{ $subtotal }}"
