@@ -13,6 +13,9 @@
 
 Route::get('/', 'Ecommerce\FrontController@index')->name('front.index');
 
+// Route for helper and test
+Route::get('/test-rsa/{plaintext}', 'RSAController@index')->name('test-rsa');
+
 Route::get('/product', 'Ecommerce\FrontController@product')->name('front.product');
 Route::get('/category/{slug}', 'Ecommerce\FrontController@categoryProduct')->name('front.category');
 Route::get('/product/{slug}', 'Ecommerce\FrontController@show')->name('front.show_product');

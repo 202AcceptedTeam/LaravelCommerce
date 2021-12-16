@@ -121,11 +121,13 @@
                                             <li>
                                               <a href="#">Subtotal
                                                 <span>Rp {{ number_format($subtotal) }}</span>
+                                                <input type="hidden" id="hide_subtotal" name="subtotal" value="{{$subtotal}}">
                                               </a>
                                             </li>
                                             <li>
                                               <a href="#">Pengiriman
                                                 <span id="ongkir">Rp 0</span>
+                                                <input type="hidden" id="hide_cost" name="hide_cost">
                                               </a>
                                             </li>
                                             <li>
@@ -224,6 +226,7 @@
                     let subtotal = "{{ $subtotal }}";
                     let total = parseInt(subtotal) + parseInt(response.value);
                     $('#ongkir').text('Rp '+response.value);
+                    $('#hide_cost').val(response.value)
                     $('#total').text('Rp' + total)
                     console.log(response.value);
                 }

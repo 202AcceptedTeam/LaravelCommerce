@@ -155,6 +155,7 @@ class CartController extends Controller
 
     public function processCheckout(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
             'customer_name' => 'required|string|max:100',
             'customer_phone' => 'required',
@@ -195,7 +196,7 @@ class CartController extends Controller
                 ]);
             }
 
-            $shipping = explode('-', $request->courier);
+            // $shipping = explode('-', $request->courier);
             $order = Order::create([
                 'invoice' => Str::random(4) . '-' . time(), 
                 'customer_id' => $customer->id,
@@ -204,8 +205,8 @@ class CartController extends Controller
                 'customer_address' => $request->customer_address,
                 'district_id' => $request->district_id,
                 'subtotal' => $subtotal,
-                'cost' => $shipping[2], 
-                'shipping' => $shipping[0] . '-' . $shipping[1]
+                'cost' => $request->hide_cost, 
+                'shipping' => $request->courier . '-' . $request->hide_cost
             ]);
 
             foreach ($carts as $row) {

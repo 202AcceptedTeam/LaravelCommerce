@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "maatwebsite/excel": "^3.1",
+        "phpseclib/phpseclib": "^3.0",
         "realrashid/sweet-alert": "^3.1"
     },
     "require-dev": {
