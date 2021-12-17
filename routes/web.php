@@ -69,6 +69,8 @@ Route::group(['prefix' => 'member', 'namespace' => 'Ecommerce'], function() {
     });
     Route::get('login', 'LoginController@loginForm')->name('customer.login');
     Route::post('login', 'LoginController@login')->name('customer.post_login');
+    Route::get('loginotp', 'LoginController@otpform')->name('customer.login_otp');
+    Route::post('loginotp', 'LoginController@loginWithOtp')->name('customer.post_login_otp');
     Route::get('verify/{token}', 'FrontController@verifyCustomerRegistration')->name('customer.verify');
     Route::get('register', 'RegisterController@registerForm')->name('customer.register');
     Route::post('register', 'RegisterController@register')->name('customer.post_register');
