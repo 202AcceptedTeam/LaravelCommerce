@@ -14,7 +14,7 @@
             <img src="{{ asset('admin-lte/dist/img/rifkidev.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">RifkiDev.id</a>
+            <a href="#" class="d-block">Vldcreation</a>
         </div>
         </div>
 

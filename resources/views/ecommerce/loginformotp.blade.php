@@ -3,7 +3,9 @@
 @section('title')
     <title>Login - Ecommerce</title>
 @endsection
-
+@php
+$auth = Session::get('auth');
+@endphp
 @section('content')
     <!--================Home Banner Area =================-->
 	<section class="banner_area">
@@ -35,13 +37,13 @@
                     @endif
 
 					<div class="login_form_inner">
-						<h3>Log in to enter</h3>
+						<h3>Verifikasi Kode OTP</h3>
 						<form class="row login_form" action="{{ route('customer.post_login') }}" method="post" id="contactForm" novalidate="novalidate">
                             @csrf
 							<div class="col-md-12 form-group">
 								<input type="hidden" class="form-control" id="email" name="email" value="{{$auth['email']}}">
-                                <input type="hidden" class="form-control" id="password" name="password" value="{{$auth['password']}}">
-                                <input type="text" class="form-control" id="otp" name="otp">
+								<input type="hidden" class="form-control" id="password" name="password" value="{{$auth['password']}}">
+                                <input type="text" class="form-control" id="otp" name="otp" placeholder="verifikasi kode otp...">
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">

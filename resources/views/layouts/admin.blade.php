@@ -8,8 +8,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="description" content="Rifki - Aplikasi Ecommerce">
-  <meta name="author" content="Rifki">
+  <meta name="description" content="Vldcreation - Aplikasi Ecommerce">
+  <meta name="author" content="Vldcreation">
   <meta name="keyword" content="aplikasi ecommerce laravel, jual beli online, jual produk fashion, ecommerce">
 
   @yield('title')

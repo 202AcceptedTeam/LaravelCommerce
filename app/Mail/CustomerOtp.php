@@ -33,8 +33,8 @@ class CustomerOtp extends Mailable
      */
     public function build()
     {
-        return $this->subject('Verifikasi Pendaftaran Anda')
-            ->view('emails.register')
+        return $this->subject('Verifikasi Login Anda')
+            ->view('emails.sendotp')
             ->with([
                 'customer' => $this->customer,
                 'otp' => $this->otp
