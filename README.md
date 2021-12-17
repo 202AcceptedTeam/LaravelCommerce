@@ -33,14 +33,12 @@ Langkah-Langkah
     <br>MAIL_USERNAME=alamat email kamu
     <br>MAIL_PASSWORD=password email kamu
     <br>MAIL_ENCRYPTION=tls
-14. Setting TELEGRAM_KEY yang berguna untuk memberitahu admin jika ada return order. Cara memperoleh TELEGRAM_KEY dengan mencari username BotFather kemudian klik start. Ketik /newbot dan ikuti instruksi dari Telegram yang meminta data terkait nama bot dan username yang akan dibuat. Setelah semuanya selesai, Telegram akan mengirimkan token untuk mengakses HTTP API
-    <br>TELEGRAM_KEY=botTOKENTELEGRAMKAMU
-15. Setting RUANGAPI_KEY dengan mendaftar terlebih dahulu di https://ruangapi.com/register:
+15. Setting RUANGAPI_KEY dengan mendaftar terlebih dahulu di https://rajaongkir.com:
     <br>RUANGAPI_KEY=TOKEN_RUANG_API_KAMU
 16. Jalankan perintah <b>php artisan migrate</b>. Cek di phpmyadmin, seharusnya tabel sudah muncul.
 17. Jalankan perintah <b>php artisan db:seed</b> untuk mengisi tabel users, provinces, cities, districts. Berikut email dan password untuk login admin pada http://localhost:8000/login
-    <br>EMAIL = rifki@admin.com
-    <br>PASSWORD = admin
+    <br>EMAIL = vicktor@admin.com
+    <br>PASSWORD = 123456
 18. Jalankan perintah <b>php artisan storage:link</b>    
 19. Setelah selesai, Jalankan perintah <b>php artisan serve</b> maka dapat diakses dengan http://localhost:8000/
 20. Login Customer dapat diakses dengan http://localhost:8000/member/login
