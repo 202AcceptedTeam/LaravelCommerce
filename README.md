@@ -33,8 +33,8 @@ Langkah-Langkah
     <br>MAIL_USERNAME=alamat email kamu
     <br>MAIL_PASSWORD=password email kamu
     <br>MAIL_ENCRYPTION=tls
-15. Setting RUANGAPI_KEY dengan mendaftar terlebih dahulu di https://rajaongkir.com:
-    <br>RUANGAPI_KEY=TOKEN_RUANG_API_KAMU
+15. Setting RAJAONGKIRAPI_KEY dedengan mendaftar terlebih dahulu di https://rajaongkirapi.com:
+    <br>RAJAONGKIRAPI_KEY=TOKEN_RUANG_API_KAMU
 16. Jalankan perintah <b>php artisan migrate</b>. Cek di phpmyadmin, seharusnya tabel sudah muncul.
 17. Jalankan perintah <b>php artisan db:seed</b> untuk mengisi tabel users, provinces, cities, districts. Berikut email dan password untuk login admin pada http://localhost:8000/login
     <br>EMAIL = vicktor@admin.com
